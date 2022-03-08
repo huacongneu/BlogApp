@@ -1,5 +1,5 @@
 # DearDiary
-DearDiary is full-stack website application.  
+DearDiary is full-stack website application.              
 It has been deployed on Heroku: https://cryptic-lowlands-34818.herokuapp.com/
 
 ### Technologies
