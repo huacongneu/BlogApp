@@ -1,5 +1,4 @@
 //jshint esversion:6
-
 const express = require("express");
 const bodyParser = require("body-parser");
 const ejs = require("ejs");
@@ -10,9 +9,7 @@ const aboutContent = "This is a 100% Free online diary. It can also be used as a
 const contactContent = "Please feel free to contact me if you have any questions or concerns.";
 
 const app = express();
-
 app.set('view engine', 'ejs');
-
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static("public"));
 
@@ -26,7 +23,6 @@ const postSchema = {
 const Post = mongoose.model("Post", postSchema);
 
 app.get("/", function(req, res){
-
   Post.find({}, function(err, posts){
     res.render("home", {
       startingContent: homeStartingContent,
@@ -44,8 +40,6 @@ app.post("/compose", function(req, res){
     title: req.body.postTitle,
     content: req.body.postBody
   });
-
-
   post.save(function(err){
     if (!err){
         res.redirect("/");
@@ -54,9 +48,7 @@ app.post("/compose", function(req, res){
 });
 
 app.get("/posts/:postId", function(req, res){
-
 const requestedPostId = req.params.postId;
-
   Post.findOne({_id: requestedPostId}, function(err, post){
     res.render("post", {
       title: post.title,
